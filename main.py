@@ -1,6 +1,9 @@
 def dig_pow(n,p):
-    digits = [int(x) for x in str(n)]
-    total = sum(d**(p+i) for i,d in enumerate(digits))
-    return total//n if total%n==0 else -1
-
-print(dig_pow(46288,3))
+    y = str(n)
+    origin = n
+    n = [int(x) for x in y]
+    total = sum(d**(p+i) for i,d in enumerate(n))
+    for k in range(total):
+        if origin * k == total:
+            return k
+    return -1
